@@ -1,0 +1,31 @@
+openapi: "3.1.0"
+
+info:
+  version: "2.0.0"
+  title: B2B Setara Commodity API
+  description: API for Setara Commodity App
+
+servers:
+  - url: /
+
+tags:
+  - name: General
+    description: Public information endpoints
+  - name: Authentication
+    description: Endpoints for authentication purpose.
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: "JWT-based authentication. The token should be provided in the Authorization header, prefixed with 'Bearer '."
+
+paths:
+  /:
+    $ref: './paths/generals.yaml'
+  /auth/login:
+    $ref: './paths/auths.yaml#/LoginPath'
+  /auth/logout:
+    $ref: './paths/auths.yaml#/LogoutPath'

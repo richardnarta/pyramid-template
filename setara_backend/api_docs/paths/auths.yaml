@@ -1,0 +1,40 @@
+LoginPath:
+  post:
+    tags:
+      - Authentication
+    description: Authenticate users with their credentials and returns user info with access token.
+    requestBody:
+      $ref: '../schemas/auths.yaml#/LoginSchema'
+    responses:
+      201:
+        $ref: '../responses/auths.yaml#/LoginResponse'
+      400:
+        $ref: '../responses/error.yaml#/400'
+      401:
+        description: Unauthorized, user account is not active, password is mismatched, other device is still logging in
+        $ref: '../responses/error.yaml#/default'
+      404:
+        description: Not found, user is not registered
+        $ref: '../responses/error.yaml#/default'
+      415:
+        $ref: '../responses/error.yaml#/415'
+      500:
+        description: Internal server error
+        $ref: '../responses/error.yaml#/default'
+
+LogoutPath:
+  get:
+    tags:
+      - Authentication
+    description: Remove user authentications from server.
+    security:
+      - bearerAuth: []
+    responses:
+      200:
+        $ref: '../responses/auths.yaml#/LogoutResponse'
+      401:
+        description: Unauthorized, invalid token
+        $ref: '../responses/error.yaml#/default'
+      500:
+        description: Internal server error
+        $ref: '../responses/error.yaml#/default'

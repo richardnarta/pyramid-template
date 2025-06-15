@@ -1,0 +1,36 @@
+LoginSchema:
+  required: true
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        required:
+          - login_method
+          - user_identifier
+          - user_password
+          - user_notification_token
+        properties:
+          login_method:
+            type: string
+            description: "The type of identifier for login."
+            enum:
+              - phone
+              - username
+              - email
+            example: "phone"
+          user_identifier:
+            type: string
+            description: The user's phone number / username / email.
+            enum:
+              - "+6281277778388"
+              - "user.john"
+              - "john@example.com"
+            example: "+6281277778388"
+          user_password:
+            type: string
+            description: The user's password.
+            example: "Secret12345!"
+          user_notification_token:
+            type: string
+            description: The user's notification token from Firebase Cloud Messaging.
+            example: "dKz2J4pA7bE:APA91bH_yG-Z8P...nE5sLg9sYc1fX"

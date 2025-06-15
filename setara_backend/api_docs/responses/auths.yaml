@@ -1,0 +1,43 @@
+LoginResponse:
+  description: Login successful, returning access token
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          error:
+            type: boolean
+            example: false
+          message:
+            type: string
+            example: "Login berhasil"
+          role:
+            type: string
+            example: "warehouse"
+            enum:
+              - admin_super
+              - admin_strategic
+              - admin_finance
+              - admin_warehouse
+              - warehouse
+              - farmer
+          role_id:
+            type: string
+            example: "Tanggamus-1"
+          access_token:
+            type: string
+            example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik..."
+
+LogoutResponse:
+  description: Logout successful
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          error:
+            type: boolean
+            example: false
+          message:
+            type: string
+            example: "Logout berhasil"

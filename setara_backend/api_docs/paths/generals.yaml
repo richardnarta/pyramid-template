@@ -1,0 +1,6 @@
+get:
+  tags:
+    - General
+  responses:
+    200:
+      description: returning backend service details

@@ -1,0 +1,3 @@
+[run] # type: ignore
+source = setara_backend # type: ignore
+omit = setara_backend/test* # type: ignore

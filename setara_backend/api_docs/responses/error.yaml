@@ -1,0 +1,36 @@
+415:
+  description: Unsupported media type
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          error:
+            type: boolean
+            example: true
+          message:
+            type: string
+            example: only support multipart/form-data
+
+400:
+  description: Bad request, validation error
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          error:
+            type: boolean
+          message:
+            type: string
+
+default:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          error:
+            type: boolean
+          message:
+            type: string
